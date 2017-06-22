@@ -18,8 +18,16 @@ class ViewController: UIViewController {
         
         btnOk = UIButton(type: UIButtonType.system)
         //CHRect類別為處理範圍 == 畫面範圍
-        btnOk?.frame = CGRect(x:20,y:20,width:40,height:40)
+        btnOk?.frame = CGRect(x:0,y:20,width:40,height:40)
         btnOk?.setTitle("OK", for: UIControlState.normal)
+        btnOk?.backgroundColor = UIColor(colorLiteralRed: 1, green: 1, blue: 0, alpha: 1)
+        
+        
+        //addTarget增加事件
+        btnOk?.addTarget(self, action: #selector(clickBtnOk), for: UIControlEvents.touchUpInside)
+       btnOk?.addTarget(self, action: #selector(clickBtnOk2), for: UIControlEvents.touchDown)
+        
+        
         
         //UIViewController屬性{get,set}輸入方法UIView.addSubview
         self.view.addSubview(btnOk!)
@@ -32,6 +40,16 @@ class ViewController: UIViewController {
         default:
             break
         }
+        
+    }
+    
+    //@objc之前留下的方法
+    @objc private func clickBtnOk(sender: UIButton){
+        print("123")
+        
+    }
+    @objc private func clickBtnOk2(sender: UIButton){
+        print("435")
         
     }
     
